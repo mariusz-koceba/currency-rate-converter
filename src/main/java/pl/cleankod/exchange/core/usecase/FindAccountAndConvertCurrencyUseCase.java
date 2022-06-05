@@ -22,12 +22,12 @@ public class FindAccountAndConvertCurrencyUseCase {
         this.baseCurrency = baseCurrency;
     }
 
-    public Optional<Account> execute(Account.Id id, Currency targetCurrency) {
+    Optional<Account> execute(Account.Id id, Currency targetCurrency) {
         return accountRepository.find(id)
                 .map(account -> new Account(account.id(), account.number(), convert(account.balance(), targetCurrency)));
     }
 
-    public Optional<Account> execute(Account.Number number, Currency targetCurrency) {
+    Optional<Account> execute(Account.Number number, Currency targetCurrency) {
         return accountRepository.find(number)
                 .map(account -> new Account(account.id(), account.number(), convert(account.balance(), targetCurrency)));
     }

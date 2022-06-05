@@ -12,11 +12,11 @@ public class FindAccountUseCase {
         this.accountRepository = accountRepository;
     }
 
-    public Optional<Account> execute(Account.Id id) {
+    Optional<Account> execute(Account.Id id) {
         return accountRepository.find(id);
     }
 
-    public Optional<Account> execute(Account.Number number) {
+    Optional<Account> execute(Account.Number number) {
         return accountRepository.find(number);
     }
 }
